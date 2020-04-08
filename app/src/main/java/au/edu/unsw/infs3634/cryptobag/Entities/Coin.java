@@ -1,11 +1,13 @@
-package au.edu.unsw.infs3634.cryptobag.Entities; ;
+package au.edu.unsw.infs3634.cryptobag.Entities;
+
+;
 
 import java.io.Serializable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Coin implements Serializable
-{
+public class Coin implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -59,13 +61,11 @@ public class Coin implements Serializable
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Coin() {
     }
 
     /**
-     *
      * @param symbol
      * @param volume24a
      * @param priceUsd

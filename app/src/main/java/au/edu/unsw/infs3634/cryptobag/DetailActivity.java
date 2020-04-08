@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -24,18 +25,19 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
-
         Intent intent = getIntent();
-        int position = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, 0);
+        String position = intent.getStringExtra(DetailFragment.ARG_ITEM_ID);
 
-        // mCoin = Coin.getCoins().get(position);
         //Fragment Code
+        Bundle arguments = new Bundle();
+        arguments.putString(CoinAdapter.ARG_ITEM_ID, String.valueOf(position));
+        DetailFragment fragment = new DetailFragment();
+        fragment.setArguments(arguments);
+        getSupportFragmentManager().beginTransaction().replace(R.id.detailActivity,fragment).commit();
 
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        Fragment fragment = new DetailFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.scrollDetailActivity,fragment).commit();
+
+
+
     }
 }
 
